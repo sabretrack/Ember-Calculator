@@ -1,6 +1,9 @@
-<select>
-{{#each model as |theme|}}
-	<option>{{theme.id}} - {{theme.class-name}} - {{theme.name}}</option>
-{{/each}}
-</select>
-<Calculator />
+<h1 class="text-danger">Current: {{activeTheme}}</h1>
+<section class="container">
+		<article class="col-md-6 offset-md-3 col-lg-3 offset-lg-5">
+				<Theme @themes={{this.model}} @activeTheme={{activeTheme}} @onChange={{action (mut activeTheme)}} />
+				<div class="bg-{{activeTheme}} border p-3 rounded mt-5">
+						<Calculator />
+				</div>
+		</article>
+</section>
