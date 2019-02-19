@@ -1,7 +1,8 @@
 {{!-- {{yield}} --}}
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 		<div class="container">
-				<a class="navbar-brand" href="#">JS Calculator</a>
+				{{link-to "JS Calculator" "home" classNames="navbar-brand"}}
+
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>
 				</button>
@@ -12,7 +13,7 @@
 										{{link-to "Home" "home" classNames="nav-link"}}
 								</li>
 								<li class="nav-item">
-										{{link-to "Calculator" "calculator" classNames="nav-link"}}
+										{{link-to "Calculator" "calculator" classNames="nav-link" id="goToCalculator"}}
 								</li>    
 						</ul>
 				</div>

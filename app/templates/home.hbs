@@ -2,8 +2,7 @@
 		<h1>JS Calculator</h1>
 		<p>A Web Based Calculator Using Ember.JS </p>
 </section>
-<h1 class="text-danger">Current: {{activeTheme}}</h1>
-<Theme @themes={{this.model}} @activeTheme={{activeTheme}} @onChange={{action (mut activeTheme) }}/>
-
-
-{{!-- <SudokuGrid @puzzle={{this.model}} @square={{square}} @squareID={{squareID}}  @onChange={{action (mut squareID)}} /> --}}
+<article class="container"> 
+	<h1 class="text-danger">Current: {{activeTheme}}</h1>
+	<Theme @themes={{this.model}} @activeTheme={{activeTheme}} @onChange={{action (mut activeTheme) "goToCalculator" }} />
+</article>

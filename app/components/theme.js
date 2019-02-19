@@ -17,8 +17,13 @@ export default Component.extend({
 	},
 	actions: {
 		setTheme(theme) {
+			if(window.location.pathname != '/calculator') {
+				document.getElementById('goToCalculator').click();
+			}
 			this.set('activeTheme', theme);
 			localStorage.setItem('localActiveTheme', JSON.stringify(theme));
+
+
 		} 
 	}
 });
