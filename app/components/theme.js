@@ -4,8 +4,9 @@ import Component from '@ember/component';
 export default Component.extend({
 	//defaultTheme: inject('active-theme'),
 	//defaultTheme: 'light',
-	triggerSetTheme(theme) {
+	SetThemeOnLoad(theme) {
 		this.set('activeTheme', theme);
+		//localStorage.setItem('activeTheme', JSON.stringify(theme));
 	},
 	/*init: function() {
 			console.log('INIT');
@@ -14,11 +15,21 @@ export default Component.extend({
 			return this._super();
 	},*/
 	didInsertElement() {
-		this.triggerSetTheme(this.defaultTheme.activeTheme);
+		//this.SetThemeOnLoad(this.defaultTheme.activeTheme);
+		var localStorageTheme = JSON.parse(localStorage.getItem('localActiveTheme'));
+
+			if (localStorageTheme) {
+				this.SetThemeOnLoad(localStorageTheme);
+			} else {
+				this.SetThemeOnLoad('light');
+			}
+
+		
 	},
 	actions: {
 		setTheme(theme) {
 			this.set('activeTheme', theme);
+			localStorage.setItem('localActiveTheme', JSON.stringify(theme));
 		} 
 	}
 });
