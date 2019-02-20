@@ -1,70 +1,68 @@
-<form>
-		<div class="input-group input-group-lg">
-				<input class="form-control" type="text">
-		</div>
-		<table class="w-100 mt-3">
-				<tbody>
-						<tr>
-								<td colspan="3">
-										<button type="reset" class="btn btn-secondary w-100">Clear</button>
-								</td>
-								<td>
-										<button type="button" class="btn btn-secondary w-100">&divide;</button>
-								</td>
-						</tr>
-						<tr>
-								<td>
-										<button type="button" class="btn btn-secondary w-100">7</button>
-								</td>
-								<td>
-										<button type="button" class="btn btn-secondary w-100">8</button>
-								</td>
-								<td>
-										<button type="button" class="btn btn-secondary w-100">9</button>
-								</td>
-								<td>
-										<button type="button" class="btn btn-secondary w-100">&times;</button>
-								</td>
-						</tr>
-						<tr>
-								<td>
-										<button type="button" class="btn btn-secondary w-100">4</button>
-								</td>
-								<td>
-										<button type="button" class="btn btn-secondary w-100">5</button>
-								</td>
-								<td>
-										<button type="button" class="btn btn-secondary w-100">6</button>
-								</td>
-								<td>
-										<button type="button" class="btn btn-secondary w-100">&minus;</button>
-								</td>
-						</tr>
-						<tr>
-								<td>
-										<button type="button" class="btn btn-secondary w-100">1</button>
-								</td>
-								<td>
-										<button type="button" class="btn btn-secondary w-100">2</button>
-								</td>
-								<td>
-										<button type="button" class="btn btn-secondary w-100">3</button>
-								</td>
-								<td>
-										<button type="button" class="btn btn-secondary w-100">&plus;</button>
-								</td>
-						</tr>
-						<tr>
-								<td colspan="2">
-										<button type="button" class="btn btn-secondary w-100">0</button>
-								</td>
-								<td>
-										<button type="button" class="btn btn-secondary w-100">&period;</button>
-								</td>
-								<td>
-										<button type="submit" class="btn btn-secondary w-100">&equals;</button>
-								</td>
-						</tr>
-				</tbody>
-		</table>
-</form>
+<div class="input-group input-group-lg">
+		<input class="form-control" type="text" value={{equation}}>
+</div>
+<table class="w-100 mt-3">
+		<tbody>
+				<tr>
+						<td colspan="3">
+								<button type="reset" class="btn btn-secondary w-100" {{action "clear"}}>Clear</button>
+						</td>
+						<td>
+								<button type="button" class="btn btn-secondary w-100" {{action "input" "÷"}}>&divide;</button>
+						</td>
+				</tr>
+				<tr>
+						<td>
+								<button type="button" class="btn btn-secondary w-100" {{action "input" "7"}}>7</button>
+						</td>
+						<td>
+								<button type="button" class="btn btn-secondary w-100" {{action "input" "8"}}>8</button>
+						</td>
+						<td>
+								<button type="button" class="btn btn-secondary w-100" {{action "input" "9"}}>9</button>
+						</td>
+						<td>
+								<button type="button" class="btn btn-secondary w-100" {{action "input" "×"}}>&times;</button>
+						</td>
+				</tr>
+				<tr>
+						<td>
+								<button type="button" class="btn btn-secondary w-100" {{action "input" "4"}}>4</button>
+						</td>
+						<td>
+								<button type="button" class="btn btn-secondary w-100" {{action "input" "5"}}>5</button>
+						</td>
+						<td>
+								<button type="button" class="btn btn-secondary w-100" {{action "input" "6"}}>6</button>
+						</td>
+						<td>
+								<button type="button" class="btn btn-secondary w-100" {{action "input" "-"}}>&minus;</button>
+						</td>
+				</tr>
+				<tr>
+						<td>
+								<button type="button" class="btn btn-secondary w-100" {{action "input" "1"}}>1</button>
+						</td>
+						<td>
+								<button type="button" class="btn btn-secondary w-100" {{action "input" "2"}}>2</button>
+						</td>
+						<td>
+								<button type="button" class="btn btn-secondary w-100" {{action "input" "3"}}>3</button>
+						</td>
+						<td>
+								<button type="button" class="btn btn-secondary w-100" {{action "input" "+"}}>&plus;</button>
+						</td>
+				</tr>
+				<tr>
+						<td colspan="2">
+								<button type="button" class="btn btn-secondary w-100" {{action "input" "0"}}>0</button>
+						</td>
+						<td>
+								<button type="button" class="btn btn-secondary w-100" {{action "input" "."}}>&period;</button>
+						</td>
+						<td>
+								<button type="submit" class="btn btn-secondary w-100" {{action "solve" equation}}>&equals;</button>
+						</td>
+				</tr>
+		</tbody>
+</table>

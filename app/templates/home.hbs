@@ -3,6 +3,6 @@
 		<p>A Web Based Calculator Using Ember.JS </p>
 </section>
 <article class="container"> 
-	<h1 class="text-danger">Current: {{activeTheme}}</h1>
-	<Theme @themes={{this.model}} @activeTheme={{activeTheme}} @onChange={{action (mut activeTheme) "goToCalculator" }} />
+		<h1 class="text-danger">Current: {{activeTheme}}</h1>
+		<Theme @themes={{this.model}} @activeTheme={{activeTheme}} @onChange={{action (mut activeTheme) "goToCalculator" }} />
 </article>
