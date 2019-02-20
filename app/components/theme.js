@@ -5,7 +5,7 @@ export default Component.extend({
 		this.set('activeTheme', theme);
 	},
 	didInsertElement() {
-			var localStorageTheme = JSON.parse(localStorage.getItem('localActiveTheme'));
+			let localStorageTheme = JSON.parse(localStorage.getItem('localActiveTheme'));
 
 			if (localStorageTheme) {
 				this.SetThemeOnLoad(localStorageTheme);
