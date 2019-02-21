@@ -19,7 +19,7 @@ export default Component.extend(ResizeAware,{
 			this.set('equation','0');
 		},
 		input(value) {
-
+			let self = this;
 			let currentValue = this.equation;
 			
 			if(currentValue == '0' && !isNaN(value) ) {
@@ -27,9 +27,24 @@ export default Component.extend(ResizeAware,{
 			}
 
 			let lastChar = currentValue[currentValue.length -1];
-			if(isNaN(lastChar) && isNaN(value) && isNaN(currentValue) ) {//prevent multiple operators
+			if(isNaN(lastChar) && isNaN(value) && isNaN(currentValue) || value == "." ) {//prevent multiple operators
 				if(value != '.') {
-					currentValue = currentValue.slice(0, -1);//replace operator with new one
+					//replace operator with new one
+					currentValue = currentValue.slice(0, -1);
+				} else {
+					//prevent too many decimals
+					let operators = ["×","÷","-","+"];
+					let lastOperator = 0;
+					operators.forEach(function(v) {
+						v = parseInt(self.equation.lastIndexOf(v));
+						if(lastOperator < v) {
+							lastOperator = v;
+						}
+					});
+					let lastDecimal = this.equation.lastIndexOf(".");
+					if(lastDecimal > lastOperator) {
+						value = '';
+					}
 				}
 			}
 
