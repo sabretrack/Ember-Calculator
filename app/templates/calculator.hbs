@@ -1,14 +1,13 @@
-
-<section class="container py-3">
-		<h1 class="text-center text-capitalize">{{activeTheme}}</h1>
+<section class="container py-3 py-sm-5">
+		<h1 class="d-none text-center text-capitalize d-sm-block">{{activeTheme}}</h1>
 		<article class="row">
-				<div class="col-12 col-sm-6 order-sm-2 col-lg-4 pt-5">
-							<Theme @themes={{this.model}} @activeTheme={{activeTheme}} @onChange={{action (mut activeTheme)}} />
+				<div class="col-12 text-center pt-3 col-sm-6 order-sm-2 text-sm-left pt-sm-5 col-lg-4">
+						<Theme @themes={{this.model}} @activeTheme={{activeTheme}} @onChange={{action (mut activeTheme)}} />
 				</div>
 				<div class="col-12 col-sm-6 order-sm-1 col-lg-4 offset-lg-2">
-							<div class="bg-{{activeTheme}} border p-3 rounded mt-5">
-									<Calculator @equation={{equation}} @tableWidth={{tableWidth}}/>
-							</div>
+						<div class="shadow p-3 rounded mt-5 calc calc-{{activeTheme}}">
+								<Calculator @equation={{equation}} @tableWidth={{tableWidth}}/>
+						</div>
 				</div>
 		</article>
 </section>

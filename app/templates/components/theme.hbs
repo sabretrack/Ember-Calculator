@@ -1,6 +1,6 @@
 {{!-- <h2>Active Theme: {{activeTheme}}</h2>--}}
-<label for="ChooseTheme" class="mt-lg-5">Choose Theme</label>
-<select id="ChooseTheme" class="form-control" onChange={{action "setTheme" value="target.value"}}>
+<label for="ChooseTheme" class="mt-sm-5">Choose Theme</label>
+<select id="ChooseTheme" class="form-control" onChange={{action "setThemeAction" value="target.value"}}>
 		{{#each themes as |theme|}}
 
 				{{!-- I'd like to review this inline "if" statement.... "selected" does not work if navigate away then back --}}

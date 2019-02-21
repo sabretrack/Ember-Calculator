@@ -1,0 +1,15 @@
+/* transition */
+@mixin transition($property) {
+	-webkit-transition: $property;
+	-moz-transition: $property;
+	-o-transition: $property;
+	transition: $property;
+}
+
+/* calculator */
+@mixin calc-buttons($bg-color, $bg-color-action) {
+	background-color: $bg-color;
+	&:hover, &:focus, &:active {
+		background-color: $bg-color-action;
+	}
+}

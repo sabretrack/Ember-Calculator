@@ -1,21 +1,13 @@
 {{!-- {{yield}} --}}
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand w-100">
 		<div class="container">
-				{{link-to "JS Calculator" "home" classNames="navbar-brand"}}
-
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-						<span class="navbar-toggler-icon"></span>
-				</button>
-
-				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-						<ul class="navbar-nav ml-auto">
-								<li class="nav-item">
-										{{link-to "Home" "home" classNames="nav-link"}}
-								</li>
-								<li class="nav-item">
-										{{link-to "Calculator" "calculator" classNames="nav-link" id="goToCalculator"}}
-								</li>    
-						</ul>
-				</div>
+				<ul class="navbar-nav mx-auto">
+						<li class="nav-item">
+								{{link-to "Home" "home" classNames="nav-link px-3"}}
+						</li>
+						<li class="nav-item">
+								{{link-to "Calculator" "calculator" classNames="nav-link px-3" id="goToCalculator"}}
+						</li>    
+				</ul>
 		</div>
 </nav>

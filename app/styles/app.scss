@@ -1,3 +1,101 @@
-
-//@import "ember-cli-bootstrap-4/bootstrap";
 @import "ember-bootstrap/bootstrap";
+@import "variables";
+
+/* --- global --- */
+#cover-page {
+	top:0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100vw;
+	min-height: 100vh;
+	margin: 0;
+	@include transition(background-color 300ms ease-out);
+
+	&.bg-colors {
+		background-color: theme-color("info");
+	}
+
+	&.bg-light {
+		.navbar {
+			a {
+				color: theme-color("dark");
+			}
+		}
+	}
+
+}
+.bg-dark, .bg-colors {
+	color: $white;
+}
+
+
+
+/* --- top nav --- */
+.navbar {
+	a {
+		color:$white;
+		opacity: 0.6;
+		&:hover, &.active {
+			opacity: 1;
+		}
+	}
+}
+
+
+
+/* --- calculator --- */
+.calc {
+	border-width: 2px;
+	border-style: solid;
+	.table {
+		font-size: 1.5em;
+	}
+	&.calc-light {
+		border-color: #ced4da;
+		.btn {
+			color: $white;
+		}
+		.btn-number {
+			@include calc-buttons(theme-color("secondary"), #5a6268);
+		}
+		.btn-action {
+			@include calc-buttons(theme-color("info"), #138496);
+		}
+	}
+	&.calc-dark {
+		border-color: theme-color("secondary");
+		.btn {
+			color: $white;
+		}
+		.btn-number {
+			@include calc-buttons(theme-color("secondary"), #5a6268);
+		}
+		.btn-action {
+			@include calc-buttons(orange, #ff7200);
+		}
+	}
+	&.calc-colors {
+		border-color: lightblue;
+		background-color: lightblue;
+		.btn {
+			color: $white;
+		}
+		.btn-number {
+			@include calc-buttons(theme-color("dark"), #5a6268);
+		}
+		.btn-action {
+			@include calc-buttons(#1a7280, theme-color("info"));
+		}
+	}
+}
+
+
+
+
+
+@media (min-width: 992px) {
+	.calc {
+		.btn { font-size: 1.2rem;}
+	}
+}
