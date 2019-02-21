@@ -45,6 +45,13 @@
 
 
 /* --- calculator --- */
+
+/* disable typing on input */
+#calc-display.form-control:disabled,
+#calc-display.form-control[readonly] {
+	background-color: $white;
+}
+
 .calc {
 	border-width: 2px;
 	border-style: solid;
