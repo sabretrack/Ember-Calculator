@@ -16,16 +16,40 @@ export default Component.extend(ResizeAware,{
 	},
 	actions: {
 		clear() {
-			this.set('equation','');
+			this.set('equation','0');
 		},
 		input(value) {
+
 			let currentValue = this.equation;
+			
+			if(currentValue == '0' && !isNaN(value) ) {
+				currentValue = ''
+			}
+
+			let lastChar = currentValue[currentValue.length -1];
+			if(isNaN(lastChar) && isNaN(value) && isNaN(currentValue) ) {//prevent multiple operators
+				if(value != '.') {
+					currentValue = currentValue.slice(0, -1);//replace operator with new one
+				}
+			}
+
 			this.set('equation', currentValue + value);
+
 		},
 		solve(string) {
-			string = string.replace('÷','/');
-			string = string.replace('×','*');
-			const solution = eval(string);
+
+			string = String(string);//convert to string
+			if(string.includes("÷") || string.includes("×")) {
+				string = string.replace('÷','/');
+				string = string.replace('×','*');
+			}
+
+			let lastChar = string[string.length -1];
+			if(isNaN(lastChar)) {
+				string = string.slice(0, -1);//remove last character if not a number
+			}
+
+			let solution = eval(string);//solve equation
 			this.set('equation', solution);
 		}
 
