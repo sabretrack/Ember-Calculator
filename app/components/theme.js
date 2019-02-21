@@ -14,22 +14,13 @@ export default Component.extend({
 			} else {
 				this.setTheme('light');
 			}
-
-		
 	},
 	actions: {
 		setThemeAction(theme) {
-
-			//FIX THIS
 			if(window.location.pathname != '/calculator') {
 				document.getElementById('goToCalculator').click();
 			}
-
-			
 			this.setTheme(theme);
-			
-
-
 		} 
 	}
 });
