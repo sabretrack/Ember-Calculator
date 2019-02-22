@@ -25,11 +25,10 @@
 	}
 
 }
+
 .bg-dark, .bg-colors {
 	color: $white;
 }
-
-
 
 /* --- top nav --- */
 .navbar {
@@ -41,7 +40,6 @@
 		}
 	}
 }
-
 
 
 /* --- calculator --- */
@@ -96,10 +94,6 @@
 		}
 	}
 }
-
-
-
-
 
 @media (min-width: 992px) {
 	.calc {
