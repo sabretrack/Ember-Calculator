@@ -2,7 +2,7 @@
 		<label for="calc-display" class="sr-only">Calculator Display</label>
 		<input id="calc-display" class="form-control" type="text" value={{equation}} readonly>
 </div>
-<table id="calc-buttons" height={{tableWidth}} class="w-100 mt-3">
+<table id="calc-buttons" height={{tableWidth}} class="w-100 mt-3" cellspacing="1">
 		<tbody>
 				<tr>
 						<td colspan="3">
@@ -67,3 +67,66 @@
 				</tr>
 		</tbody>
 </table>
+{{!-- <div id="calc-buttons" style="height:{{tableWidth}}px" class="d-table w-100 mt-3">
+				<div class="d-table-row">
+						<div class="d-table-cell">
+								<button type="reset" class="btn btn-number w-100 h-100" {{action "clear"}}>Clear</button>
+						</div>
+						<div class="d-table-cell">
+								<button type="button" class="btn btn-action w-100 h-100" {{action "input" "÷"}}>&divide;<span class="sr-only">Divide</span></button>
+						</div>
+				</div>
+				<div class="d-table-row">
+						<div class="d-table-cell">
+								<button type="button" class="btn btn-number w-100 h-100" {{action "input" "7"}}>7</button>
+						</div>
+						<div class="d-table-cell">
+								<button type="button" class="btn btn-number w-100 h-100" {{action "input" "8"}}>8</button>
+						</div>
+						<div class="d-table-cell">
+								<button type="button" class="btn btn-number w-100 h-100" {{action "input" "9"}}>9</button>
+						</div>
+						<div class="d-table-cell">
+								<button type="button" class="btn btn-action w-100 h-100" {{action "input" "×"}}>&times;<span class="sr-only">Multiply</span></button>
+						</div>
+				</div>
+				<div class="d-table-row">
+						<div class="d-table-cell">
+								<button type="button" class="btn btn-number w-100 h-100" {{action "input" "4"}}>4</button>
+						</div>
+						<div class="d-table-cell">
+								<button type="button" class="btn btn-number w-100 h-100" {{action "input" "5"}}>5</button>
+						</div>
+						<div class="d-table-cell">
+								<button type="button" class="btn btn-number w-100 h-100" {{action "input" "6"}}>6</button>
+						</div>
+						<div class="d-table-cell">
+								<button type="button" class="btn btn-action w-100 h-100" {{action "input" "-"}}>&minus;<span class="sr-only">Subtract</span></button>
+						</div>
+				</div>
+				<div class="d-table-row">
+						<div class="d-table-cell">
+								<button type="button" class="btn btn-number w-100 h-100" {{action "input" "1"}}>1</button>
+						</div>
+						<div class="d-table-cell">
+								<button type="button" class="btn btn-number w-100 h-100" {{action "input" "2"}}>2</button>
+						</div>
+						<div class="d-table-cell">
+								<button type="button" class="btn btn-number w-100 h-100" {{action "input" "3"}}>3</button>
+						</div>
+						<div class="d-table-cell">
+								<button type="button" class="btn btn-action w-100 h-100" {{action "input" "+"}}>&plus;<span class="sr-only">Add</span></button>
+						</div>
+				</div>
+				<div class="d-table-row">
+						<div class="d-table-cell">
+								<button type="button" class="btn btn-number w-100 h-100" {{action "input" "0"}}>0</button>
+						</div>
+						<div class="d-table-cell">
+								<button type="button" class="btn btn-number w-100 h-100" {{action "input" "."}}>&period;<span class="sr-only">Decimal</span></button>
+						</div>
+						<div class="d-table-cell">
+								<button type="submit" class="btn btn-action w-100 h-100" {{action "solve" equation}}>&equals;<span class="sr-only">Equals</span></button>
+						</div>
+				</div>
+</div> --}}
