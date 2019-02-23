@@ -84,7 +84,7 @@ export default Component.extend(ResizeAware,{
 
 			//convert equation into string
 			string = String(string);
-			if(string.includes("÷") || string.includes("×")) {
+			if(string.indexOf("÷") || string.indexOf("×")) {
 				string = string.replace(/÷/g,'/');
 				string = string.replace(/×/g,'*');
 			}
