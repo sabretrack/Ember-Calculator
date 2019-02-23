@@ -2,131 +2,102 @@
 		<label for="calc-display" class="sr-only">Calculator Display</label>
 		<input id="calc-display" class="form-control" type="text" value={{equation}} readonly>
 </div>
-<table id="calc-buttons" height={{tableWidth}} class="w-100 mt-3" cellspacing="1">
+<table id="calc-buttons" class="w-100 mt-3">
 		<tbody>
 				<tr>
-						<td colspan="3">
-								<button type="reset" class="btn btn-number w-100 h-100" {{action "clear"}}>Clear</button>
+						<td height={{cellHeight}} colspan="3">
+								<div>
+										<button type="reset" class="btn btn-number" {{action "clear"}}>Clear</button>
+								</div>
 						</td>
-						<td>
-								<button type="button" class="btn btn-action w-100 h-100" {{action "input" "÷"}}>&divide;<span class="sr-only">Divide</span></button>
-						</td>
-				</tr>
-				<tr>
-						<td>
-								<button type="button" class="btn btn-number w-100 h-100" {{action "input" "7"}}>7</button>
-						</td>
-						<td>
-								<button type="button" class="btn btn-number w-100 h-100" {{action "input" "8"}}>8</button>
-						</td>
-						<td>
-								<button type="button" class="btn btn-number w-100 h-100" {{action "input" "9"}}>9</button>
-						</td>
-						<td>
-								<button type="button" class="btn btn-action w-100 h-100" {{action "input" "×"}}>&times;<span class="sr-only">Multiply</span></button>
+						<td height={{cellHeight}}>
+								<div>
+										<button type="button" class="btn btn-action" {{action "input" "÷"}}>&divide;<span class="sr-only">Divide</span></button>
+								</div>
 						</td>
 				</tr>
 				<tr>
-						<td>
-								<button type="button" class="btn btn-number w-100 h-100" {{action "input" "4"}}>4</button>
+						<td height={{cellHeight}}>
+								<div>
+										<button type="button" class="btn btn-number" {{action "input" "7"}}>7</button>
+								</div>
 						</td>
-						<td>
-								<button type="button" class="btn btn-number w-100 h-100" {{action "input" "5"}}>5</button>
+						<td height={{cellHeight}}>
+								<div>
+										<button type="button" class="btn btn-number " {{action "input" "8"}}>8</button>
+								</div>
 						</td>
-						<td>
-								<button type="button" class="btn btn-number w-100 h-100" {{action "input" "6"}}>6</button>
+						<td height={{cellHeight}}>
+								<div>
+										<button type="button" class="btn btn-number" {{action "input" "9"}}>9</button>
+								</div>
 						</td>
-						<td>
-								<button type="button" class="btn btn-action w-100 h-100" {{action "input" "-"}}>&minus;<span class="sr-only">Subtract</span></button>
-						</td>
-				</tr>
-				<tr>
-						<td>
-								<button type="button" class="btn btn-number w-100 h-100" {{action "input" "1"}}>1</button>
-						</td>
-						<td>
-								<button type="button" class="btn btn-number w-100 h-100" {{action "input" "2"}}>2</button>
-						</td>
-						<td>
-								<button type="button" class="btn btn-number w-100 h-100" {{action "input" "3"}}>3</button>
-						</td>
-						<td>
-								<button type="button" class="btn btn-action w-100 h-100" {{action "input" "+"}}>&plus;<span class="sr-only">Add</span></button>
+						<td height={{cellHeight}}>
+								<div>
+										<button type="button" class="btn btn-action" {{action "input" "×"}}>&times;<span class="sr-only">Multiply</span></button>
+								</div>
 						</td>
 				</tr>
 				<tr>
-						<td colspan="2">
-								<button type="button" class="btn btn-number w-100 h-100" {{action "input" "0"}}>0</button>
+						<td height={{cellHeight}}>
+								<div>
+										<button type="button" class="btn btn-number" {{action "input" "4"}}>4</button>
+								</div>
 						</td>
-						<td>
-								<button type="button" class="btn btn-number w-100 h-100" {{action "input" "."}}>&period;<span class="sr-only">Decimal</span></button>
+						<td height={{cellHeight}}>
+								<div>
+										<button type="button" class="btn btn-number" {{action "input" "5"}}>5</button>
+								</div>
 						</td>
-						<td>
-								<button type="submit" class="btn btn-action w-100 h-100" {{action "solve" equation}}>&equals;<span class="sr-only">Equals</span></button>
+						<td height={{cellHeight}}>
+								<div>
+										<button type="button" class="btn btn-number" {{action "input" "6"}}>6</button>
+								</div>
+						</td>
+						<td height={{cellHeight}}>
+								<div>
+										<button type="button" class="btn btn-action" {{action "input" "-"}}>&minus;<span class="sr-only">Subtract</span></button>
+								</div>
+						</td>
+				</tr>
+				<tr>
+						<td height={{cellHeight}}>
+								<div>
+										<button type="button" class="btn btn-number" {{action "input" "1"}}>1</button>
+								</div>
+						</td>
+						<td height={{cellHeight}}>
+								<div>
+										<button type="button" class="btn btn-number" {{action "input" "2"}}>2</button>
+								</div>
+						</td>
+						<td height={{cellHeight}}>
+								<div>
+										<button type="button" class="btn btn-number" {{action "input" "3"}}>3</button>
+								</div>
+						</td>
+						<td height={{cellHeight}}>
+								<div>
+										<button type="button" class="btn btn-action" {{action "input" "+"}}>&plus;<span class="sr-only">Add</span></button>
+								</div>
+						</td>
+				</tr>
+				<tr>
+						<td height={{cellHeight}} colspan="2">
+								<div>
+										<button type="button" class="btn btn-number" {{action "input" "0"}}>0</button>
+								</div>
+						</td>
+						<td height={{cellHeight}}>
+								<div>
+										<button type="button" class="btn btn-number" {{action "input" "."}}>&period;<span class="sr-only">Decimal</span></button>
+								</div>
+						</td>
+						<td height={{cellHeight}}>
+								<div>
+										<button type="submit" class="btn btn-action" {{action "solve" equation}}>&equals;<span class="sr-only">Equals</span></button>
+								</div>
 						</td>
 				</tr>
 		</tbody>
 </table>
-{{!-- <div id="calc-buttons" style="height:{{tableWidth}}px" class="d-table w-100 mt-3">
-				<div class="d-table-row">
-						<div class="d-table-cell">
-								<button type="reset" class="btn btn-number w-100 h-100" {{action "clear"}}>Clear</button>
-						</div>
-						<div class="d-table-cell">
-								<button type="button" class="btn btn-action w-100 h-100" {{action "input" "÷"}}>&divide;<span class="sr-only">Divide</span></button>
-						</div>
-				</div>
-				<div class="d-table-row">
-						<div class="d-table-cell">
-								<button type="button" class="btn btn-number w-100 h-100" {{action "input" "7"}}>7</button>
-						</div>
-						<div class="d-table-cell">
-								<button type="button" class="btn btn-number w-100 h-100" {{action "input" "8"}}>8</button>
-						</div>
-						<div class="d-table-cell">
-								<button type="button" class="btn btn-number w-100 h-100" {{action "input" "9"}}>9</button>
-						</div>
-						<div class="d-table-cell">
-								<button type="button" class="btn btn-action w-100 h-100" {{action "input" "×"}}>&times;<span class="sr-only">Multiply</span></button>
-						</div>
-				</div>
-				<div class="d-table-row">
-						<div class="d-table-cell">
-								<button type="button" class="btn btn-number w-100 h-100" {{action "input" "4"}}>4</button>
-						</div>
-						<div class="d-table-cell">
-								<button type="button" class="btn btn-number w-100 h-100" {{action "input" "5"}}>5</button>
-						</div>
-						<div class="d-table-cell">
-								<button type="button" class="btn btn-number w-100 h-100" {{action "input" "6"}}>6</button>
-						</div>
-						<div class="d-table-cell">
-								<button type="button" class="btn btn-action w-100 h-100" {{action "input" "-"}}>&minus;<span class="sr-only">Subtract</span></button>
-						</div>
-				</div>
-				<div class="d-table-row">
-						<div class="d-table-cell">
-								<button type="button" class="btn btn-number w-100 h-100" {{action "input" "1"}}>1</button>
-						</div>
-						<div class="d-table-cell">
-								<button type="button" class="btn btn-number w-100 h-100" {{action "input" "2"}}>2</button>
-						</div>
-						<div class="d-table-cell">
-								<button type="button" class="btn btn-number w-100 h-100" {{action "input" "3"}}>3</button>
-						</div>
-						<div class="d-table-cell">
-								<button type="button" class="btn btn-action w-100 h-100" {{action "input" "+"}}>&plus;<span class="sr-only">Add</span></button>
-						</div>
-				</div>
-				<div class="d-table-row">
-						<div class="d-table-cell">
-								<button type="button" class="btn btn-number w-100 h-100" {{action "input" "0"}}>0</button>
-						</div>
-						<div class="d-table-cell">
-								<button type="button" class="btn btn-number w-100 h-100" {{action "input" "."}}>&period;<span class="sr-only">Decimal</span></button>
-						</div>
-						<div class="d-table-cell">
-								<button type="submit" class="btn btn-action w-100 h-100" {{action "solve" equation}}>&equals;<span class="sr-only">Equals</span></button>
-						</div>
-				</div>
-</div> --}}

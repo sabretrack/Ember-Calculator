@@ -10,8 +10,8 @@ export default Component.extend(ResizeAware,{
 		this.resizeTable();
 	},
 	resizeTable(){//Prevent Table from skewing, (equal height/width)
-		let newTableWidth = document.getElementById('calc-buttons').offsetWidth;
-		this.set('tableWidth',newTableWidth)
+		let newCellHeight = document.getElementById('calc-buttons').offsetWidth / 5;
+		this.set('cellHeight',newCellHeight)
 		
 	},
 
@@ -52,9 +52,9 @@ export default Component.extend(ResizeAware,{
 				//prevent too many decimal points
 				else 
 				{
-					let operators = ["×","÷","-","+"];
+					const operators = ["×","÷","-","+"];
 					let lastOperator = 0;
-					let self = this;
+					const self = this;
 					operators.forEach(function(v) {
 
 						//get position of last operator in equation
@@ -84,7 +84,7 @@ export default Component.extend(ResizeAware,{
 
 			//convert equation into string
 			string = String(string);
-			if(string.indexOf("÷") || string.indexOf("×")) {
+			if(string.indexOf("×") || string.indexOf("÷")) {
 				string = string.replace(/÷/g,'/');
 				string = string.replace(/×/g,'*');
 			}
