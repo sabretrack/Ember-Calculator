@@ -46,6 +46,7 @@ module.exports = function(environment) {
   if (environment === 'production') {
     // here you can enable a production-specific feature
     ENV.rootURL = '/calculator';
+    ENV.locationType = 'hash';
   }
 
   return ENV;
