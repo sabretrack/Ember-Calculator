@@ -14,13 +14,5 @@ module('Integration | Component | theme', function(hooks) {
 
     assert.equal(this.element.textContent.trim(), '');
 
-    // Template block usage:
-    await render(hbs`
-      {{#theme}}
-        template block text
-      {{/theme}}
-    `);
-
-    assert.equal(this.element.textContent.trim(), 'template block text');
   });
 });

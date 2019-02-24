@@ -1,4 +1,4 @@
-import { module, test } from 'qunit';
+ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
@@ -13,14 +13,5 @@ module('Integration | Component | calculator', function(hooks) {
     await render(hbs`{{calculator}}`);
 
     assert.equal(this.element.textContent.trim(), '');
-
-    // Template block usage:
-    await render(hbs`
-      {{#calculator}}
-        template block text
-      {{/calculator}}
-    `);
-
-    assert.equal(this.element.textContent.trim(), 'template block text');
   });
 });

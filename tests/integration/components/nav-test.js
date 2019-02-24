@@ -14,13 +14,5 @@ module('Integration | Component | nav', function(hooks) {
 
     assert.equal(this.element.textContent.trim(), '');
 
-    // Template block usage:
-    await render(hbs`
-      {{#nav}}
-        template block text
-      {{/nav}}
-    `);
-
-    assert.equal(this.element.textContent.trim(), 'template block text');
   });
 });
