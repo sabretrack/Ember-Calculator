@@ -30,7 +30,6 @@ export default Component.extend(ResizeAware,{
 			let solved = this.solved;
 			//if solved and clicked a number or decimal, reset the calculator
 			if(solved && !isNaN(value) || solved && value == ".") {
-				//this.solved = false;
 				currentValue = '0';
 				this.set('equation','0');
 			}
@@ -40,7 +39,7 @@ export default Component.extend(ResizeAware,{
 				currentValue = '';
 			}
 
-			//prevent multiple operators next to each other
+			//prevent multiple operators sitting next to each other
 			let lastChar = currentValue[currentValue.length -1];
 			if(isNaN(lastChar) && isNaN(value) && isNaN(currentValue) || value == "." ) {
 
@@ -70,7 +69,6 @@ export default Component.extend(ResizeAware,{
 
 					//compare operator position vs decimal position
 					if(lastDecimal > lastOperator) {
-						//
 						value = '';
 					}
 				}
