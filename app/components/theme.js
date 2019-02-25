@@ -1,6 +1,7 @@
 import Component from '@ember/component';
 
 export default Component.extend({
+	classNames:['theme-component'],
 	setTheme(theme) {
 		this.set('activeTheme', theme);
 		document.getElementById("cover-page").className = "bg-"+theme;

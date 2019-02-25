@@ -6,13 +6,19 @@ import hbs from 'htmlbars-inline-precompile';
 module('Integration | Component | theme', function(hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function(assert) {
+  test('it renders active theme', async function(assert) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
 
-    await render(hbs`{{theme}}`);
+    let activeTheme = 'light';
 
-    assert.equal(this.element.textContent.trim(), '');
+    this.set('activeTheme', activeTheme);
+    await render(hbs `<Theme activeTheme={{activeTheme}} />`);
+    //await render(hbs `{{theme activeTheme=activeTheme}}`);
+
+    //assert.async();
+    assert.equal(this.element.querySelector('.theme-component').getAttribute('activetheme'), activeTheme, 'Active theme is set for component');
 
   });
+
 });
