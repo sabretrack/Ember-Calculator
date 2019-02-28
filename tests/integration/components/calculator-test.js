@@ -6,18 +6,20 @@ import hbs from 'htmlbars-inline-precompile';
 module('Integration | Component | calculator', function(hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders table cell height for calculator buttons', async function(assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
-
-    let cellHeight = 50;
-
-    
-    this.set('cellHeight', cellHeight);
-    await render(hbs `<Calculator cellHeight={{cellHeight}} />`);
-    //await render(hbs`{{calculator cellHeight=cellHeight}}`);
-
-    //assert.async();
-    assert.equal(this.element.querySelector('td').getAttribute('height'), cellHeight, 'Cell Height is correct');
+  test('calculator component renders', async function(assert) {
+    await render(hbs`{{calculator}}`);
+    assert.equal(this.element.textContent.trim(), '', 'calculator component rendered successfully');
   });
+
+  test('calculator table cell height is set', async function(assert) {
+    await render(hbs `<Calculator />`);
+    assert.notEqual(this.element.querySelector('td').getAttribute('height'), '', 'Cell Height is set');
+  });
+
+  /* test('calculator buttons update the equation input', async function(assert) {
+    await render(hbs `<Calculator />`);
+  }); */
+
+
+
 });
