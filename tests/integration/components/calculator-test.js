@@ -11,9 +11,13 @@ module('Integration | Component | calculator', function(hooks) {
     assert.equal(this.element.textContent.trim(), '', 'calculator component rendered successfully');
   });
 
-  test('calculator table cell height is set', async function(assert) {
+  test('calculator table cell height', async function(assert) {
     await render(hbs `<Calculator />`);
-    assert.notEqual(this.element.querySelector('td').getAttribute('height'), '', 'Cell Height is set');
+
+    let cellHeightAttr = this.element.querySelector('td').getAttribute('height');
+
+    assert.notEqual(cellHeightAttr, '', 'Cell Height is set');
+
   });
 
   /* test('calculator buttons update the equation input', async function(assert) {
