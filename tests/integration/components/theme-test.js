@@ -13,15 +13,18 @@ module('Integration | Component | theme', function(hooks) {
       {'class-name': 'dark', 'name': 'Dark'}, 
       {'class-name': 'colors', 'name': 'Colors'} 
     ];
-    this.set('activeTheme', 'light');
-    this.set('themes', themes);
 
-    /* TODO: get localstorage value for active Theme and test */
+    /* TODO: test if localStorage active theme is captured correctly*/
+    let localStorageTheme = JSON.parse(localStorage.getItem('localActiveTheme'));
+    let activeTheme = localStorageTheme ? localStorageTheme : 'light';
+
+    this.set('activeTheme',activeTheme);
+    this.set('themes', themes);
 
     await render(hbs `<Theme @themes={{themes}} @activeTheme={{activeTheme}} />` );
     
     let optionSelectedValue = this.element.querySelector('option:checked').value;
-    assert.equal(this.activeTheme, optionSelectedValue, 'Active theme is selected in <select> menu');
+    assert.equal(this.activeTheme, optionSelectedValue, 'Active theme ('+ optionSelectedValue +') is selected in <select> menu');
 
   });
 
