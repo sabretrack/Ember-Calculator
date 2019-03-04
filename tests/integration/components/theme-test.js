@@ -6,18 +6,22 @@ import hbs from 'htmlbars-inline-precompile';
 module('Integration | Component | theme', function(hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders active theme', async function(assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
+  test('Themes are loaded and activeTheme is selected in <select> menu', async function(assert) {
 
-    let activeTheme = 'light';
+    let themes = [
+      {'class-name': 'light', 'name': 'Light'}, 
+      {'class-name': 'dark', 'name': 'Dark'}, 
+      {'class-name': 'colors', 'name': 'Colors'} 
+    ];
+    this.set('activeTheme', 'light');
+    this.set('themes', themes);
 
-    this.set('activeTheme', activeTheme);
-    await render(hbs `<Theme activeTheme={{activeTheme}} />`);
-    //await render(hbs `{{theme activeTheme=activeTheme}}`);
+    /* TODO: get localstorage value for active Theme and test */
 
-    //assert.async();
-    assert.equal(this.element.querySelector('.theme-component').getAttribute('activetheme'), activeTheme, 'Active theme is set for component');
+    await render(hbs `<Theme @themes={{themes}} @activeTheme={{activeTheme}} />` );
+    
+    let optionSelectedValue = this.element.querySelector('option:checked').value;
+    assert.equal(this.activeTheme, optionSelectedValue, 'Active theme is selected in <select> menu');
 
   });
 

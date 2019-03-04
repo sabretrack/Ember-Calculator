@@ -19,11 +19,4 @@ module('Integration | Component | calculator', function(hooks) {
     assert.notEqual(cellHeightAttr, '', 'Cell Height is set');
 
   });
-
-  /* test('calculator buttons update the equation input', async function(assert) {
-    await render(hbs `<Calculator />`);
-  }); */
-
-
-
 });
