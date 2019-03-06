@@ -11,15 +11,13 @@ module('Acceptance | calculator', function(hooks) {
 		await visit('/calculator');
 
 		//ON LOAD
-		let h1Title = this.element.querySelector('h1').textContent.trim();
-		let selectValue = this.element.querySelector('select#ChooseTheme').value;
-		assert.equal(h1Title,selectValue,'onLoad - <h1> title matches selected value of <select> themes menu');
+		let h1Title = this.element.querySelector('h1');
+		let selectValue = this.element.querySelector('select#ChooseTheme');
+		assert.equal( h1Title.textContent.trim(), selectValue.value, 'onLoad - <h1> title matches selected value of <select> themes menu');
 
 		//ON CHANGE
 		await fillIn('select#ChooseTheme', 'dark');
-		h1Title = this.element.querySelector('h1').textContent;
-		selectValue = this.element.querySelector('select#ChooseTheme').value;
-		assert.equal(h1Title,selectValue,'onChange - <h1> title matches selected value of <select> themes menu');
+		assert.equal( h1Title.textContent.trim(), selectValue.value, 'onChange - <h1> title matches selected value of <select> themes menu');
 
 
 		assert.equal(currentURL(), '/calculator', 'visit calculator URL is correct');
