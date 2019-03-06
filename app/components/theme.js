@@ -2,12 +2,14 @@ import Component from '@ember/component';
 import { inject as service } from '@ember/service';
 import Location from '@ember/routing/location';
 
+
 export default Component.extend({
-	activeThemeService: service('theme'),
+	serviceTheme: service('theme'),
 	classNames:['theme-component'],
+	thisURL: Location._location.pathname,
 	setTheme(theme) {
 		//set active theme at application level
-		this.activeThemeService.set('activeTheme', theme);
+		this.serviceTheme.set('activeTheme', theme);
 
 		//set active theme at component level
 		this.set('activeTheme', theme);
@@ -16,6 +18,7 @@ export default Component.extend({
 		localStorage.setItem('localActiveTheme', JSON.stringify(theme));
 	},
 	didInsertElement() {
+
 			let localStorageTheme = JSON.parse(localStorage.getItem('localActiveTheme'));
 			//if localstorage theme is set, use it
 			if (localStorageTheme) 
@@ -25,14 +28,15 @@ export default Component.extend({
 			//else get default theme from "services/theme"
 			else 
 			{
-				let defaultTheme = this.activeThemeService.get('activeTheme');
+				let defaultTheme = this.serviceTheme.get('activeTheme');
 				this.setTheme(defaultTheme);
 			}
 	},
 	actions: {
 		setThemeAction(theme) {
+
 			//if on homepage and select theme, send me to calculator page
-			if(Location._location.pathname != '/calculator') {
+			if(this.thisURL != '/calculator') {
 				this.element.querySelector('#goToCalculator').click();
 			}
 			
