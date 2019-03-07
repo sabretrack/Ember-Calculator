@@ -6,17 +6,52 @@ import hbs from 'htmlbars-inline-precompile';
 module('Integration | Component | calculator', function(hooks) {
   setupRenderingTest(hooks);
 
-  test('calculator component renders', async function(assert) {
+  test('it renders', async function(assert) {
+
+    let defaultEquation = 0;
+
+    this.set('equation', defaultEquation);
+    this.set('cellHeight', '');
+
+    await render( hbs `<Calculator @equation={{equation}} @cellHeight={{cellHeight}}/>`);
+
+    //ON LOAD
+    assert.equal(this.equation, defaultEquation, 'onLoad - default equation is set to zero');
+
+    //ON CLICK - INDIVIDUAL NUMBERS AND CLEAR
+    let i;
+    for(i = 0; i < 10; i++) {
+      clickNumberButton(i, this);
+    }
+    function clickNumberButton(NumberButton, self){
+      //click a number
+      let buttonNumber = NumberButton;
+      self.element.querySelector('.btn-' + buttonNumber ).click();
+      assert.equal(self.equation, buttonNumber, 'onClick - number ('+buttonNumber+') button   updates the equation to ( '+self.equation+' )');
+
+      //click clear
+      self.element.querySelector('.btn-clear').click();
+      assert.equal(self.equation, defaultEquation, 'onClick - clear button resets the equation back to default value ( '+defaultEquation+')');
+    }
+
+  });
+
+  /*test('it renders', async function(assert) {
+    // Set any properties with this.set('myProperty', 'value');
+    // Handle any actions with this.set('myAction', function(val) { ... });
+
     await render(hbs`{{calculator}}`);
-    assert.equal(this.element.textContent.trim(), '', 'calculator component rendered successfully');
-  });
 
-  test('calculator table cell height', async function(assert) {
-    await render(hbs `<Calculator />`);
+    assert.equal(this.element.textContent.trim(), '');
 
-    let cellHeightAttr = this.element.querySelector('td').getAttribute('height');
+    // Template block usage:
+    await render(hbs`
+      {{#calculator}}
+        template block text
+      {{/calculator}}
+    `);
 
-    assert.notEqual(cellHeightAttr, '', 'Cell Height is set');
+    assert.equal(this.element.textContent.trim(), 'template block text');
+  }); */
 
-  });
 });
