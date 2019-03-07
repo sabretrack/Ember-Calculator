@@ -7,95 +7,95 @@
 				<tr>
 						<td height={{cellHeight}} colspan="3">
 								<div>
-										<button type="reset" class="btn btn-number" {{action "clear"}}>Clear</button>
+										<button type="reset" class="btn btn-clear" {{action "clear"}}>Clear</button>
 								</div>
 						</td>
 						<td height={{cellHeight}}>
 								<div>
-										<button type="button" class="btn btn-action" {{action "input" "÷"}}>&divide;<span class="sr-only">Divide</span></button>
-								</div>
-						</td>
-				</tr>
-				<tr>
-						<td height={{cellHeight}}>
-								<div>
-										<button type="button" class="btn btn-number" {{action "input" "7"}}>7</button>
-								</div>
-						</td>
-						<td height={{cellHeight}}>
-								<div>
-										<button type="button" class="btn btn-number " {{action "input" "8"}}>8</button>
-								</div>
-						</td>
-						<td height={{cellHeight}}>
-								<div>
-										<button type="button" class="btn btn-number" {{action "input" "9"}}>9</button>
-								</div>
-						</td>
-						<td height={{cellHeight}}>
-								<div>
-										<button type="button" class="btn btn-action" {{action "input" "×"}}>&times;<span class="sr-only">Multiply</span></button>
+										<button type="button" class="btn btn-action btn-divide" {{action "input" "÷"}}>&divide;<span class="sr-only">Divide</span></button>
 								</div>
 						</td>
 				</tr>
 				<tr>
 						<td height={{cellHeight}}>
 								<div>
-										<button type="button" class="btn btn-number" {{action "input" "4"}}>4</button>
+										<button type="button" class="btn btn-number btn-7" {{action "input" "7"}}>7</button>
 								</div>
 						</td>
 						<td height={{cellHeight}}>
 								<div>
-										<button type="button" class="btn btn-number" {{action "input" "5"}}>5</button>
+										<button type="button" class="btn btn-number btn-8" {{action "input" "8"}}>8</button>
 								</div>
 						</td>
 						<td height={{cellHeight}}>
 								<div>
-										<button type="button" class="btn btn-number" {{action "input" "6"}}>6</button>
+										<button type="button" class="btn btn-number btn-9" {{action "input" "9"}}>9</button>
 								</div>
 						</td>
 						<td height={{cellHeight}}>
 								<div>
-										<button type="button" class="btn btn-action" {{action "input" "-"}}>&minus;<span class="sr-only">Subtract</span></button>
+										<button type="button" class="btn btn-action btn-multiply" {{action "input" "×"}}>&times;<span class="sr-only">Multiply</span></button>
 								</div>
 						</td>
 				</tr>
 				<tr>
 						<td height={{cellHeight}}>
 								<div>
-										<button type="button" class="btn btn-number" {{action "input" "1"}}>1</button>
+										<button type="button" class="btn btn-number btn-4" {{action "input" "4"}}>4</button>
 								</div>
 						</td>
 						<td height={{cellHeight}}>
 								<div>
-										<button type="button" class="btn btn-number" {{action "input" "2"}}>2</button>
+										<button type="button" class="btn btn-number btn-5" {{action "input" "5"}}>5</button>
 								</div>
 						</td>
 						<td height={{cellHeight}}>
 								<div>
-										<button type="button" class="btn btn-number" {{action "input" "3"}}>3</button>
+										<button type="button" class="btn btn-number btn-6" {{action "input" "6"}}>6</button>
 								</div>
 						</td>
 						<td height={{cellHeight}}>
 								<div>
-										<button type="button" class="btn btn-action" {{action "input" "+"}}>&plus;<span class="sr-only">Add</span></button>
+										<button type="button" class="btn btn-action btn-subtract" {{action "input" "-"}}>&minus;<span class="sr-only">Subtract</span></button>
+								</div>
+						</td>
+				</tr>
+				<tr>
+						<td height={{cellHeight}}>
+								<div>
+										<button type="button" class="btn btn-number btn-1" {{action "input" "1"}}>1</button>
+								</div>
+						</td>
+						<td height={{cellHeight}}>
+								<div>
+										<button type="button" class="btn btn-number btn-2" {{action "input" "2"}}>2</button>
+								</div>
+						</td>
+						<td height={{cellHeight}}>
+								<div>
+										<button type="button" class="btn btn-number btn-3" {{action "input" "3"}}>3</button>
+								</div>
+						</td>
+						<td height={{cellHeight}}>
+								<div>
+										<button type="button" class="btn btn-action btn-add" {{action "input" "+"}}>&plus;<span class="sr-only">Add</span></button>
 								</div>
 						</td>
 				</tr>
 				<tr>
 						<td height={{cellHeight}} colspan="2">
 								<div>
-										<button type="button" class="btn btn-number" {{action "input" "0"}}>0</button>
+										<button type="button" class="btn btn-number btn-0" {{action "input" "0"}}>0</button>
 								</div>
 						</td>
 						<td height={{cellHeight}}>
 								<div>
-										<button type="button" class="btn btn-number" {{action "input" "."}}>&period;<span class="sr-only">Decimal</span></button>
+										<button type="button" class="btn btn-number btn-decimal" {{action "input" "."}}>&period;<span class="sr-only">Decimal</span></button>
 								</div>
 						</td>
 						<td height={{cellHeight}}>
 								<div>
-										<button type="submit" class="btn btn-action" {{action "solve" equation}}>&equals;<span class="sr-only">Equals</span></button>
+										<button type="submit" class="btn btn-action btn-equals" {{action "solve" equation}}>&equals;<span class="sr-only">Equals</span></button>
 								</div>
 						</td>
 				</tr>

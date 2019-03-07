@@ -75,7 +75,7 @@ table#calc-buttons {
 		.btn {
 			color: $white;
 		}
-		.btn-number {
+		.btn-number, .btn-clear {
 			@include calc-buttons(theme-color("secondary"), #5a6268);
 		}
 		.btn-action {
@@ -87,7 +87,7 @@ table#calc-buttons {
 		.btn {
 			color: $white;
 		}
-		.btn-number {
+		.btn-number, .btn-clear {
 			@include calc-buttons(theme-color("secondary"), #5a6268);
 		}
 		.btn-action {
@@ -100,7 +100,7 @@ table#calc-buttons {
 		.btn {
 			color: $white;
 		}
-		.btn-number {
+		.btn-number, .btn-clear {
 			@include calc-buttons(theme-color("dark"), #5a6268);
 		}
 		.btn-action {
