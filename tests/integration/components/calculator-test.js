@@ -94,6 +94,11 @@ module('Integration | Component | calculator', function(hooks) {
     await click('.btn-equals');
     assert.equal(this.equation,'0.653623997624', 'solved - complex equation with decimals (1.1+2.22-3.333×4.4444÷5.55555=0.653623997624)');
 
+    //equation with extremely large numbers
+    this.set('equation', '999000000000×999000000000');
+    await click('.btn-equals');
+    assert.equal(this.equation,'9.98001e+23', 'solved - extremely large numbers (999000000000×999000000000=9.98001e+23)');
+
   });
 
 });
