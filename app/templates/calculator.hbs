@@ -2,7 +2,7 @@
 		<h1 class="d-none text-center text-capitalize d-sm-block">{{activeTheme}}</h1>
 		<article class="row">
 				<div class="col-12 text-center pt-3 col-sm-6 order-sm-2 text-sm-left pt-sm-5 col-lg-4">
-						<Theme @themes={{this.model}} @activeTheme={{activeTheme}} @onChange={{action (mut activeTheme)}} />
+						<Theme @calculatorRoute={{model.calculatorRoute}} @themes={{model.allThemes}} @activeTheme={{activeTheme}} @onChange={{action (mut activeTheme)}} />
 				</div>
 				<div class="col-12 col-sm-6 order-sm-1 col-lg-4 offset-lg-2">
 						<div class="shadow p-3 rounded mt-5 calc calc-{{activeTheme}}">

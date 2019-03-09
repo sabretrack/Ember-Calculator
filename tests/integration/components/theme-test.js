@@ -22,9 +22,9 @@ module('Integration | Component | theme', function(hooks) {
 
     this.set('activeTheme',activeTheme);
     this.set('themes', themes);
-    
+    this.set('calculatorRoute', true);
 
-    await render(hbs `<Theme @themes={{themes}} @activeTheme={{activeTheme}} @onChange={{action (mut activeTheme)}} @thisURL={{'/calculator'}} />`)
+    await render(hbs `<Theme @themes={{themes}} @activeTheme={{activeTheme}} @onChange={{action (mut activeTheme)}} @calculatorRoute={{calculatorRoute}} />`)
 
     //ON LOAD
     let optionSelectedValue = this.element.querySelector('option:checked').value;

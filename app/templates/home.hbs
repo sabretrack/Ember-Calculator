@@ -5,7 +5,7 @@
 				<div class="row">
 						<div class="col-12 pt-5 col-sm-6 offset-sm-3 col-lg-4 offset-lg-4">
 								{{!-- <h1>Current: {{activeTheme}}</h1> --}}
-								<Theme @themes={{this.model}} @activeTheme={{activeTheme}} @onChange={{action (mut activeTheme) "goToCalculator" }} />
+								<Theme @themes={{model.allThemes}} @activeTheme={{activeTheme}} @onChange={{action (mut activeTheme) "goToCalculator" }} />
 						</div>
 				</div>
 		</article>
