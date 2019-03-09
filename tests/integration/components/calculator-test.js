@@ -8,7 +8,7 @@ module('Integration | Component | calculator', function(hooks) {
 
 
   test('It renders, defaults to 0, sets cellHeight', async function(assert) {
-
+    assert.expect(2);
     let defaultEquation = 0;
 
     this.set('equation', defaultEquation);
@@ -23,7 +23,7 @@ module('Integration | Component | calculator', function(hooks) {
 
 
   test('It updates equation when numbers, decimal, clear and operator buttons are clicked - also prevents consecutive operators and multiple decimals', async function(assert) {
-
+    assert.expect(26);
     let defaultEquation = 0;
     this.set('equation', defaultEquation);
 
@@ -71,7 +71,7 @@ module('Integration | Component | calculator', function(hooks) {
   });
 
   test('It solves complex equations', async function(assert) {
-
+    assert.expect(5);
     this.set('equation', 0);
     await render( hbs `<Calculator @equation={{equation}}/>`);
 
