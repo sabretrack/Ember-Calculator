@@ -78,23 +78,23 @@ export default Component.extend(ResizeAware,{
 		},
 
 		//-------solve equation
-		solve(string) {
+		solve(finalEquation) {
 
 			//convert equation into string
-			string = String(string);
-			if(string.indexOf("×") || string.indexOf("÷")) {
-				string = string.replace(/÷/g,'/');
-				string = string.replace(/×/g,'*');
+			finalEquation = String(finalEquation);
+			if(finalEquation.indexOf("×") || finalEquation.indexOf("÷")) {
+				finalEquation = finalEquation.replace(/÷/g,'/');
+				finalEquation = finalEquation.replace(/×/g,'*');
 			}
 			
 			//remove last character if not a number
-			let lastChar = string[string.length -1];
+			let lastChar = finalEquation[finalEquation.length -1];
 			if(isNaN(lastChar)) {
-				string = string.slice(0, -1);
+				finalEquation = finalEquation.slice(0, -1);
 			}
 			
 			//solve equation
-			let solution = eval(string);
+			let solution = eval(finalEquation);
 			solution = Math.round((solution) * 1e12) / 1e12;
 
 			this.set('equation', solution);

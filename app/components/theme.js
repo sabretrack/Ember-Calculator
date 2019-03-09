@@ -3,6 +3,7 @@ import { inject as service } from '@ember/service';
 
 
 export default Component.extend({
+	router: service(),
 	serviceTheme: service('theme'),
 	classNames:['theme-component'],
 	isCalculatorRoute: false,
@@ -41,8 +42,9 @@ export default Component.extend({
 		setThemeAction(theme) {
 
 			//if on homepage and select theme, send me to calculator page
+			//if(this.get('router').currentURL != '/calculator') {
 			if(!this.isCalculatorRoute) {
-				this.element.querySelector('#goToCalculator').click();
+				this.get('router').transitionTo('calculator');
 			}
 			
 			this.setTheme(theme);
