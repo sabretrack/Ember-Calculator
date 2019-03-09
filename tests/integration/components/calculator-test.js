@@ -6,7 +6,7 @@ import hbs from 'htmlbars-inline-precompile';
 module('Integration | Component | calculator', function(hooks) {
   setupRenderingTest(hooks);
 
-  test('Calculator component renders - defaults to 0 - sets cellHeight - updates equation when numbers, decimal and clear buttons are clicked', async function(assert) {
+  test('Calculator component renders - defaults to 0 - sets cellHeight - updates equation when numbers, decimal, clear and operator buttons are clicked', async function(assert) {
 
     let defaultEquation = 0;
 
@@ -37,6 +37,28 @@ module('Integration | Component | calculator', function(hooks) {
     //ON CLICK - DECIMAL BUTTON
     await click('.btn-decimal');
     assert.equal(this.equation, '0.', 'onClick - "decimal" button updates the equation to "0." ');
+    this.element.querySelector('.btn-clear').click();
+
+    //ON CLICK - OPERATOR BUTTONS
+    //divide
+    await click('.btn-divide');
+    assert.equal(this.equation, '0÷', 'onClick - "divide" button updates the equation to "0÷" ');
+    this.element.querySelector('.btn-clear').click();
+
+    //multiply
+    await click('.btn-multiply');
+    assert.equal(this.equation, '0×', 'onClick - "multiply" button updates the equation to "0×" ');
+    this.element.querySelector('.btn-clear').click();
+
+    //add
+    await click('.btn-add');
+    assert.equal(this.equation, '0+', 'onClick - "add" button updates the equation to "0+" ');
+    this.element.querySelector('.btn-clear').click();
+
+    //subtract
+    await click('.btn-subtract');
+    assert.equal(this.equation, '0-', 'onClick - "subtract" button updates the equation to "0-" ');
+    this.element.querySelector('.btn-clear').click();
 
   });
 
