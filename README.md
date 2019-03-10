@@ -1,7 +1,7 @@
 # calculator
 
 This README outlines the details of collaborating on this Ember application.
-
+![alt text](https://raw.githubusercontent.com/sabretrack/Ember-Calculator/master/public/images/Ember-Calculator.jpg)
 ## Prerequisites
 
 You will need the following things properly installed on your computer.
