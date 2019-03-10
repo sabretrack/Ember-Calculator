@@ -1,7 +1,9 @@
 # calculator
 
-A Web Based Calculator Built with Ember.js.
+A web based calculator built with Ember.js.
 Choose your theme from the select menu and start calculating!
+
+View a live demo at [laplantedesign.com/calculator](http://laplantedesign.com/calculator/)
 
 ![alt text](https://raw.githubusercontent.com/sabretrack/Ember-Calculator/master/public/images/ember-calculator-home.jpg)
 ![alt text](https://raw.githubusercontent.com/sabretrack/Ember-Calculator/master/public/images/ember-calculator-default.jpg)
