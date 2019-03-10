@@ -4,8 +4,7 @@ import { setupTest } from 'ember-qunit';
 module('Unit | Model | theme', function(hooks) {
   setupTest(hooks);
 
-  // Replace this with your real tests.
-  test('retrieves each theme\'s name and class name', function(assert) {
+  test('retrieves name and class name', function(assert) {
     let store = this.owner.lookup('service:store');
     let model = store.createRecord('theme', {
 		'class-name': 'light',

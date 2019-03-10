@@ -1,17 +1,25 @@
-{{!-- <h2>Active Theme: {{activeTheme}}</h2>--}}
 <label for="ChooseTheme" class="mt-sm-5">Choose Theme</label>
 <select id="ChooseTheme" class="form-control" onChange={{action "setThemeAction" value="target.value"}}>
-		{{#each themes as |theme|}}
 
+		{{!-- Default Theme  --}}
+		{{#if (eq @activeTheme "default")}}
+				<option value="default" selected="selected">Default</option>
+		{{else}}
+				<option value="default">Default</option>
+		{{/if}}
+
+		{{!-- Themes from API --}}
+		{{#each themes as |theme|}}
 				{{#if (eq @activeTheme theme.class-name)}}
 						<option value={{theme.class-name}} selected="selected">
-								{{theme.name}} {{if (eq theme.class-name "light") "(default)" ""}}
+								{{theme.name}}
 						</option>
 				{{else}}
 						<option value={{theme.class-name}}>
-								{{theme.name}} {{if (eq theme.class-name "light") "(default)" ""}}
+								{{theme.name}}
 						</option>
 				{{/if}}
-
 		{{/each}}
+
+
 </select>

@@ -1,7 +1,16 @@
 # calculator
 
+A Web Based Calculator Built with Ember.js.
+Choose your theme from the select menu and start calculating!
+
+![alt text](https://raw.githubusercontent.com/sabretrack/Ember-Calculator/master/public/images/ember-calculator-home.jpg)
+![alt text](https://raw.githubusercontent.com/sabretrack/Ember-Calculator/master/public/images/ember-calculator-default.jpg)
+![alt text](https://raw.githubusercontent.com/sabretrack/Ember-Calculator/master/public/images/ember-calculator-light.jpg)
+![alt text](https://raw.githubusercontent.com/sabretrack/Ember-Calculator/master/public/images/ember-calculator-dark.jpg)
+![alt text](https://raw.githubusercontent.com/sabretrack/Ember-Calculator/master/public/images/ember-calculator-colors.jpg)
+
 This README outlines the details of collaborating on this Ember application.
-![alt text](https://raw.githubusercontent.com/sabretrack/Ember-Calculator/master/public/images/Ember-Calculator.jpg)
+
 ## Prerequisites
 
 You will need the following things properly installed on your computer.

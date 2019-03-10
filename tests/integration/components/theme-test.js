@@ -18,20 +18,20 @@ module('Integration | Component | theme', function(hooks) {
 
     /* TODO: test if localStorage active theme is captured correctly*/
     let localStorageTheme = JSON.parse(localStorage.getItem('localActiveTheme'));
-    let activeTheme = localStorageTheme ? localStorageTheme : 'light';
+    let activeTheme = localStorageTheme ? localStorageTheme : 'default';
 
     this.set('activeTheme',activeTheme);
     this.set('themes', themes);
     this.set('calculatorRoute', true);
 
-    await render(hbs `<Theme @themes={{themes}} @activeTheme={{activeTheme}} @onChange={{action (mut activeTheme)}} @calculatorRoute={{calculatorRoute}} />`)
+    await render(hbs `<Theme @themes={{themes}} @activeTheme={{activeTheme}} @onChange={{action (mut activeTheme)}} @calculatorRoute={{calculatorRoute}} />`);
 
     //ON LOAD
     let optionSelectedValue = this.element.querySelector('option:checked').value;
     assert.equal(this.activeTheme, optionSelectedValue, 'on load - Active theme ('+ optionSelectedValue +') is selected in <select> menu');
 
     //ON CHANGE
-    await fillIn('select#ChooseTheme', 'light');
+    await fillIn('select#ChooseTheme', 'default');
     assert.equal(this.element.querySelector('select#ChooseTheme').value, this.activeTheme, 'onChange - <select> changes the activeTheme');
 
   });

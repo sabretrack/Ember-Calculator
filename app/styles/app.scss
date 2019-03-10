@@ -16,7 +16,8 @@
 		background-color: theme-color("info");
 	}
 
-	&.bg-light {
+	&.bg-light, &.bg-default {
+		background-color: theme-color("light");
 		.navbar {
 			a {
 				color: theme-color("dark");
@@ -69,6 +70,18 @@ table#calc-buttons {
 	border-style: solid;
 	.table {
 		font-size: 1.5em;
+	}
+	&.calc-default {
+		border-color: #ced4da;
+		.btn {
+			color: $white;
+		}
+		.btn-number, .btn-clear {
+			@include calc-buttons(theme-color("dark"), theme-color("info"));
+		}
+		.btn-action {
+			@include calc-buttons(theme-color("secondary"), theme-color("info"));
+		}
 	}
 	&.calc-light {
 		border-color: #ced4da;
