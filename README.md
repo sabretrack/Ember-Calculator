@@ -80,7 +80,7 @@ Specify what it takes to deploy your app.
 
 * `this.isCalculatorRoute` will update to "true" or "false" depending on what page the user is currently on.  It is used as a roundabout way to trigger the if statement inside "setThemeAction()" without generating routing errors in integration tests.
 
-* `localStorageTheme` variable gets "localActiveTheme" from localstorage.  The app will remember what the latest "activeTheme" value is when navigating through the pages or coming back at a later date.  If "localActiveTheme" is not defined, it will be set to "default".
+* `localStorageTheme` variable gets "localActiveTheme" from localstorage.  The app will remember what the latest "activeTheme"  is when navigating through the pages or coming back at a later date.  If "localActiveTheme" is not defined, it will be set to "default" ("default" is set in "app/services/theme.js").
 
 ### actions: setThemeAction(theme){ }
 * `if(!this.isCalculatorRoute)`  If a user is not on the "/calculator" page, they will be redirected when selecting a theme from the `<select>` menu.  If already on the "/calculator" page, it will change the "activeTheme" without redirecting.
