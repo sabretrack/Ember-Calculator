@@ -5,11 +5,11 @@ Choose your theme from the select menu and start calculating!
 
 View a live demo at [laplantedesign.com/calculator](http://laplantedesign.com/calculator/)
 
-![alt text](https://raw.githubusercontent.com/sabretrack/Ember-Calculator/master/public/images/ember-calculator-home.jpg)
-![alt text](https://raw.githubusercontent.com/sabretrack/Ember-Calculator/master/public/images/ember-calculator-default.jpg)
-![alt text](https://raw.githubusercontent.com/sabretrack/Ember-Calculator/master/public/images/ember-calculator-light.jpg)
-![alt text](https://raw.githubusercontent.com/sabretrack/Ember-Calculator/master/public/images/ember-calculator-dark.jpg)
-![alt text](https://raw.githubusercontent.com/sabretrack/Ember-Calculator/master/public/images/ember-calculator-colors.jpg)
+![homepage screenshot](https://raw.githubusercontent.com/sabretrack/Ember-Calculator/master/public/images/documentation/ember-calculator-home.jpg)
+![default theme screenshot](https://raw.githubusercontent.com/sabretrack/Ember-Calculator/master/public/images/documentation/ember-calculator-default.jpg)
+![light theme screenshot](https://raw.githubusercontent.com/sabretrack/Ember-Calculator/master/public/images/documentation/ember-calculator-light.jpg)
+![dark theme screenshot](https://raw.githubusercontent.com/sabretrack/Ember-Calculator/master/public/images/documentation/ember-calculator-dark.jpg)
+![colors theme screenshot](https://raw.githubusercontent.com/sabretrack/Ember-Calculator/master/public/images/documentation/ember-calculator-colors.jpg)
 
 This README outlines the details of collaborating on this Ember application.
 
@@ -67,7 +67,7 @@ Specify what it takes to deploy your app.
   * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
 
 ## Theme Component (/app/components/theme.js)
-![alt text](https://raw.githubusercontent.com/sabretrack/Ember-Calculator/master/public/images/component-themejs.jpg)
+![Theme component javascript screenshot](https://raw.githubusercontent.com/sabretrack/Ember-Calculator/master/public/images/documentation/component-themejs.jpg)
 ### setTheme(theme){ }
 * `this.serviceTheme.set('activeTheme',theme);` Sets "activeTheme" at the application level inside "app/services/theme.js". This allows the application template (/templates/application.hbs) to retrieve the "activeTheme" value and determine the background color of the entire page: `<div id="cover-page" class="bg-{{activeThemeService.activeTheme}}">`
 
@@ -78,7 +78,7 @@ Specify what it takes to deploy your app.
 ### didInsertElement(){ }
 * `this.calculatorRoute` variable is set inside "routes/calculator.js".  Every time the "theme" component is called, it will know if it is currently on the "/calculator" page or not.
 
-* `this.isCalculatorRoute` will update to "true" or "false" depending on what page the user is currently on.  It is used as a roundabout way to trigger the if statement inside "setThemeAction()" without generating routing errors in integration tests.
+* `this.isCalculatorRoute` will update to "true" or "false" depending on what page the user is currently on.  It is used as a roundabout way to trigger the if statement inside "actions:setThemeAction()" without generating routing errors during integration tests.
 
 * `localStorageTheme` variable gets "localActiveTheme" from localstorage.  The app will remember what the latest "activeTheme"  is when navigating through the pages or coming back at a later date.  If "localActiveTheme" is not defined, it will be set to "default" ("default" is set in "app/services/theme.js").
 
@@ -86,3 +86,45 @@ Specify what it takes to deploy your app.
 * `if(!this.isCalculatorRoute)`  If a user is not on the "/calculator" page, they will be redirected when selecting a theme from the `<select>` menu.  If already on the "/calculator" page, it will change the "activeTheme" without redirecting.
   
 * `this.setTheme(theme)`  calls "setTheme(theme)" method.  It is triggered using the "onChange" method when a user selects a theme from the `<select>` menu...     `<select id="ChooseTheme" class="form-control" onChange={{action "setThemeAction" value="target.value"}}>`
+
+## Calculator Component (/app/components/calculator.js)
+![Calculator component screenshot](https://raw.githubusercontent.com/sabretrack/Ember-Calculator/master/public/images/documentation/component-calculatorjs.jpg)
+
+`didRender:` call resizeTable() method when component has finished rendering
+
+`debounceRate: 50` prevent "resizeTable()" from firing too often
+
+`didResize(){ }` call "resizeTable()" when window has been resized
+
+`resizeTable() { }` calculate "cellHeight" of calculator `<table>` so the buttons' widths and heights remain proportional without skewing.
+
+`solved:` set to "false" by default.  Determines if calculator equation should be reset when a new equation is created.
+
+### actions: clear() { }
+* reset the calculator to "0" when "clear" button is clicked.
+
+### actions: input(value){ }
+* `currentValue:` Every time a button is clicked, get the value of the button
+
+* `if(solved && !isNaN(value) || solved && value == ".")`  if the equation has been solved, determine whether to reset the calculator to "0"  or build a new equation based on the previous answer.  If a number or decimal is clicked, reset the equation.  If an operator is clicked, add the operator to the previous answer and begin a new equation.
+
+* `if(currentValue == '0' && !isNaN(value))` if calculator is set to 0, remove the zero when a number is clicked. (Ex. Click the "5" button. The calculator will show "5"  instead of "05")
+
+* `if(isNaN(lastChar) && isNaN(value) && isNaN(currentValue) || value == "." )`  will prevent invalid equations such as 5`+-×`2  or 5.5.5+2.2.2.2.
+
+* `this.set('equation', currentValue + value);`  Will update the equation after each button click.  
+
+### actions: solve(finalEquation){ }
+* "solve" is triggered when "equals" button is clicked.  "finalEquation" is the value of the equation when "equals" is clicked.
+
+* `if(finalEquation.indexOf("×") || finalEquation.indexOf("÷"))` "`×`" and "`÷`" are visual symbols.  We need to convert these into operators that Javascript can understand before solving the equation. "`×`" is changed to "`*`" and "`÷`" is changed to "`/`".
+
+* `if(isNaN(lastChar))` if the last character in the equation is an operator, "slice" it off before solving the equation.  (ex: "5+5+" will be changed to "5+5")
+
+* `eval(finalEquation)` will attempt to solve the equation
+
+* `solution = Math.round((solution) * 1e12) / 1e12;`  makes sure the result is accurate.  Before I added this I noticed some simple equations, involving decimals, returning the wrong answers.
+
+* `this.set('equation', solution);` update the equation with the rendered answer.
+
+* `this.solved = true;` Lets the calculator know an answer has been rendered.  When a button is clicked, the calculator will know whether to clear the answer or use it as part of the next equation.
