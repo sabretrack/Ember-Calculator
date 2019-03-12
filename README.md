@@ -67,7 +67,7 @@ Specify what it takes to deploy your app.
   * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
 
 ## Theme Component (/app/components/theme.js)
-![Theme component javascript screenshot](https://raw.githubusercontent.com/sabretrack/Ember-Calculator/master/public/images/documentation/component-themejs.jpg)
+![Theme component javascript screenshot](https://raw.githubusercontent.com/sabretrack/Ember-Calculator/master/public/images/documentation/component-theme.jpg)
 ### setTheme(theme){ }
 * `this.serviceTheme.set('activeTheme',theme);` Sets "activeTheme" at the application level inside "app/services/theme.js". This allows the application template (/templates/application.hbs) to retrieve the "activeTheme" value and determine the background color of the entire page: `<div id="cover-page" class="bg-{{activeThemeService.activeTheme}}">`
 
@@ -84,7 +84,7 @@ Specify what it takes to deploy your app.
 * `this.setTheme(theme)`  calls "setTheme(theme)" method.  It is triggered using the "onChange" method when a user selects a theme from the `<select>` menu...     `<select id="ChooseTheme" class="form-control" onChange={{action "setThemeAction" value="target.value"}}>`
 
 ## Calculator Component (/app/components/calculator.js)
-![Calculator component screenshot](https://raw.githubusercontent.com/sabretrack/Ember-Calculator/master/public/images/documentation/component-calculatorjs.jpg)
+![Calculator component screenshot](https://raw.githubusercontent.com/sabretrack/Ember-Calculator/master/public/images/documentation/component-calculator.jpg)
 
 `didRender:` call resizeTable() method when component has finished rendering
 
