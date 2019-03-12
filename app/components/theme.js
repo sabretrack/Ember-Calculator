@@ -6,7 +6,6 @@ export default Component.extend({
 	router: service(),
 	serviceTheme: service('theme'),
 	classNames:['theme-component'],
-	isCalculatorRoute: false,
 	setTheme(theme) {
 		//set active theme at application level
 		this.serviceTheme.set('activeTheme', theme);
@@ -18,12 +17,6 @@ export default Component.extend({
 		localStorage.setItem('localActiveTheme', JSON.stringify(theme));
 	},
 	didInsertElement() {
-			//determine if it's the calculator route
-			if(this.calculatorRoute) {
-				this.isCalculatorRoute = true;
-			} else {
-				this.isCalculatorRoute = false;
-			}
 
 			//if localstorage theme is set, use it
 			let localStorageTheme = JSON.parse(localStorage.getItem('localActiveTheme'));
@@ -41,9 +34,8 @@ export default Component.extend({
 	actions: {
 		setThemeAction(theme) {
 
-			//if on homepage and select theme, send me to calculator page
-			//if(this.get('router').currentURL != '/calculator') {
-			if(!this.isCalculatorRoute) {
+			//if not on calculator page and select theme, send me to calculator page
+			if(this.get('router').currentURL != '/calculator') {
 				this.get('router').transitionTo('calculator');
 			}
 			

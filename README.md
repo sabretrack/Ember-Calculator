@@ -76,14 +76,10 @@ Specify what it takes to deploy your app.
 * `localStorageTheme.setItem('localActiveTheme'...`  will set the "localActiveTheme" value in localstorage.
 
 ### didInsertElement(){ }
-* `this.calculatorRoute` variable is set inside "routes/calculator.js".  Every time the "theme" component is called, it will know if it is currently on the "/calculator" page or not.
-
-* `this.isCalculatorRoute` will update to "true" or "false" depending on what page the user is currently on.  It is used as a roundabout way to trigger the if statement inside "actions:setThemeAction()" without generating routing errors during integration tests.
-
 * `localStorageTheme` variable gets "localActiveTheme" from localstorage.  The app will remember what the latest "activeTheme"  is when navigating through the pages or coming back at a later date.  If "localActiveTheme" is not defined, it will be set to "default" ("default" is set in "app/services/theme.js").
 
 ### actions: setThemeAction(theme){ }
-* `if(!this.isCalculatorRoute)`  If a user is not on the "/calculator" page, they will be redirected when selecting a theme from the `<select>` menu.  If already on the "/calculator" page, it will change the "activeTheme" without redirecting.
+* `if(this.get('router').currentURL != '/calculator')`  If a user is not on the "/calculator" page, they will be redirected when selecting a theme from the `<select>` menu.  If already on the "/calculator" page, it will change the "activeTheme" without redirecting.
   
 * `this.setTheme(theme)`  calls "setTheme(theme)" method.  It is triggered using the "onChange" method when a user selects a theme from the `<select>` menu...     `<select id="ChooseTheme" class="form-control" onChange={{action "setThemeAction" value="target.value"}}>`
 

@@ -10,6 +10,8 @@ module('Integration | Component | theme', function(hooks) {
   test('Themes are loaded and activeTheme is selected in <select> menu', async function(assert) {
     assert.expect(2);
 
+    this.owner.lookup('router:main').setupRouter();
+
     let themes = [
       {'class-name': 'light', 'name': 'Light'}, 
       {'class-name': 'dark', 'name': 'Dark'}, 
@@ -22,9 +24,8 @@ module('Integration | Component | theme', function(hooks) {
 
     this.set('activeTheme',activeTheme);
     this.set('themes', themes);
-    this.set('calculatorRoute', true);
 
-    await render(hbs `<Theme @themes={{themes}} @activeTheme={{activeTheme}} @onChange={{action (mut activeTheme)}} @calculatorRoute={{calculatorRoute}} />`);
+    await render(hbs `<Theme @themes={{themes}} @activeTheme={{activeTheme}} @onChange={{action (mut activeTheme)}} />`);
 
     //ON LOAD
     let optionSelectedValue = this.element.querySelector('option:checked').value;
